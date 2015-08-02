@@ -1,0 +1,7 @@
+VARIABLE TEMP
+variable DENS
+variable ye
+
+FACEVAR  mag
+
+EDGEVAR  E
