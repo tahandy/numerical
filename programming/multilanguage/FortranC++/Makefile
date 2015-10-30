@@ -31,7 +31,7 @@ SRCS = BoxClass.cxx \
 	   cxxFuncs.cxx \
 	   cxxFuncsInterface.F90 \
 	   cxxFortFuncs.F90 \
-	   cxxmain.cxx
+	   main.cxx
 
 OBJS = $(patsubst %.cxx,%.o,$(patsubst %.F90,%.o,$(SRCS)))
 

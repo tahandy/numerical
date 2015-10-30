@@ -1,11 +1,34 @@
-# Chaining optional arguments
+# Interfacing C++ and Fortran
+The example here demonstrates how to interface C++ and Fortran functions and includes:
 
-This example shows the behavior of Fortran's optional arguments when chained together.
+- Calling simple C++/Fortran functions from Fortran/C++
+- Using **extern "C"** and iso_c_binding's **bind** to avoid name-mangling during compilation
+- Creating and using a Fortran API for a C++ class
 
-The main program calls the function _test1_ with and without an argument. _test1_ then uses
-this argument, without checking if it is __present__, to _test2_. _test2_ then evaluates 
-__present(arg)__ which is the true state of the argument passed inside of _main_.
+## BoxClass.{cxx,h}
 
+A simple demonstration C++ class with getters and setters.
+
+## BoxClass_fortAPI.{cxx,h}
+
+C++ functions to be used when calling BoxClass member functions from inside Fortran.
+
+## BoxClass_module.F90
+
+Fortran interfaces for the BoxClass_fortAPI C++ functions.
+
+## cxxFuncs.{cxx,h} cxxFuncsInterface.F90
+
+Simple C++ functions for use in Fortran, plus the Fortran interfaces required to use them.
+
+## cxxFortFuncs.{F90,h}
+
+Fortran functions which should be called from the C++ driver. These perform the calling of cxxFuncs and
+the BoxClass Fortran API.
+
+## main.cxx
+
+Driver program for demonstrating function calls.
 
 
 
